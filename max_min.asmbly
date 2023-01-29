@@ -1,0 +1,34 @@
+org 100h   
+.data 
+a db 15,8,25,17,2;
+len equ $-a;
+max db 0;
+min db 0;
+.code      
+mov si,0; 
+mov cx,len ;
+mov al,a[si]; 
+mov min,al
+L:
+mov al,a[si]; 
+inc si;
+cmp al,max;
+jg LL 
+LLLL:
+cmp al,min
+jl LLL
+
+loop L  
+jmp exit
+
+LL:
+mov max,al
+jmp LLLL
+
+LLL:
+mov min,al 
+jmp L
+
+exit:
+ret
+     
